@@ -1,0 +1,44 @@
+$zen-column-count: 12;
+$zen-gutter-width: 10px;
+
+.floatgrid {
+  @include zen-grid-container();
+  @include zen-grid-background();
+
+  .one {
+    @include zen-grid-item(8, 1);
+    border: 3px solid red;
+  }
+
+  .two {
+    @include zen-grid-item(4, 9);
+    border: 3px solid blue;
+  }
+
+  .image {
+    @include zen-grid-flow-item(3, 8);
+    @include zen-float();
+    border: 3px solid green;
+  }
+
+  // Mediaquery for tablets
+  @include breakpoint($breakpoint-tablet) {
+    .one,
+    .two {
+      @include zen-clear();
+      @include zen-grid-item(12, 1);
+    }
+
+    .image {
+      @include zen-grid-flow-item(3, 12);
+    }
+  }
+
+  // Mediaquery for smartphones
+  @include breakpoint($breakpoint-mobile) {
+    .image {
+      @include zen-clear();
+      @include zen-grid-flow-item(12, 12);
+    }
+  }
+}

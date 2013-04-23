@@ -1,0 +1,108 @@
+$zen-column-count: 12;
+$zen-gutter-width: 10px;
+
+.complexgrid {
+  .inner-one {
+    @include zen-grid-container();
+    @include zen-grid-background();
+
+    .nested {
+      @include zen-grid-item(4, 1);
+      @include zen-nested-container();
+
+      .one {
+        @include zen-grid-item(12, 1);
+        border: 3px solid red;
+      }
+
+      .two {
+        @include zen-clear();
+        @include zen-grid-item(12, 1);
+        border: 3px solid green;
+      }
+    }
+
+    .three {
+      @include zen-grid-item(4, 5);
+      border: 3px solid blue;
+    }
+
+    .four {
+      @include zen-grid-item(4, 9);
+      border: 3px solid hotpink;
+    }
+
+    // Mediaquery for tablets
+    @include breakpoint($breakpoint-tablet) {
+      .nested {
+        @include zen-grid-item(6, 1);
+      }
+
+      .three {
+        @include zen-grid-item(6, 7);
+      }
+
+      .four {
+        @include zen-clear();
+        @include zen-grid-item(12, 1);
+      }
+    }
+
+    // Mediaquery for smartphones
+    @include breakpoint($breakpoint-mobile) {
+      .nested,
+      .three,
+      .four {
+        @include zen-clear();
+        @include zen-grid-item(12, 1);
+      }
+    }
+  }
+
+
+  .inner-two {
+    @include zen-grid-container();
+    @include zen-grid-background();
+    margin-top: 20px;
+
+    .one {
+      @include zen-grid-item(3, 1);
+      border: 3px solid red;
+    }
+
+    .two {
+      @include zen-grid-item(6, 4);
+      border: 3px solid green;
+    }
+
+    .three {
+      @include zen-grid-item(3, 10);
+      border: 3px solid blue;
+    }
+
+    // Mediaquery for tablets
+    @include breakpoint($breakpoint-tablet) {
+      .one {
+        @include zen-grid-item(6, 1);
+      }
+
+      .two {
+        @include zen-grid-item(6, 7);
+      }
+
+      .three {
+        @include zen-clear();
+        @include zen-grid-item(12, 1);
+      }
+    }
+
+    // Mediaquery for smartphones
+    @include breakpoint($breakpoint-mobile) {
+      .one,
+      .two {
+        @include zen-clear();
+        @include zen-grid-item(12, 1);
+      }
+    }
+  }
+}

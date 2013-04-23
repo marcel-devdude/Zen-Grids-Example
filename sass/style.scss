@@ -1,0 +1,29 @@
+@import "compass";
+@import "zen";
+@import "zen/background";
+@import "breakpoint";
+
+@include font-face("Blokk", font-files("BLOKKNeue-Regular.eot", "BLOKKNeue-Regular.svg", "BLOKKNeue-Regular.ttf", "BLOKKNeue-Regular.woff"));
+
+$breakpoint-default-feature: max-width;
+$breakpoint-tablet: 960px;
+$breakpoint-mobile: 480px;
+
+body {
+  font-family: helvetica, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.simplegrid,
+.complexgrid,
+.floatgrid {
+  font-family: Blokk;
+}
+
+@import "_simplegrid.scss";
+@import "_complexgrid.scss";
+@import "_floatgrid.scss";
